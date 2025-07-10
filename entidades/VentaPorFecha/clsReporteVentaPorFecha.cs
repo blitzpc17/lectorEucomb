@@ -11,6 +11,7 @@ namespace entidades.VentaPorFecha
         public string Factura { get; set; }
         public DateTime Fecha { get; set; }
         public string Uuid { get; set; }
+        public string Clave { get; set; }
         public string Producto { get; set; }
         public decimal Litros { get; set; }
         public decimal Importe { get; set; }

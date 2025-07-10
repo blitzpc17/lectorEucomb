@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tsProgressbar = new System.Windows.Forms.ToolStripProgressBar();
+            this.chkTodos = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
@@ -129,6 +130,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkTodos);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.cbxFiltro);
             this.groupBox2.Controls.Add(this.txtBusqueda);
@@ -160,6 +162,7 @@
             this.cbxFiltro.Name = "cbxFiltro";
             this.cbxFiltro.Size = new System.Drawing.Size(299, 25);
             this.cbxFiltro.TabIndex = 11;
+            this.cbxFiltro.SelectedIndexChanged += new System.EventHandler(this.cbxFiltro_SelectedIndexChanged);
             // 
             // txtBusqueda
             // 
@@ -194,6 +197,20 @@
             // 
             this.tsProgressbar.Name = "tsProgressbar";
             this.tsProgressbar.Size = new System.Drawing.Size(100, 22);
+            // 
+            // chkTodos
+            // 
+            this.chkTodos.AutoSize = true;
+            this.chkTodos.Checked = true;
+            this.chkTodos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkTodos.Location = new System.Drawing.Point(466, 32);
+            this.chkTodos.Name = "chkTodos";
+            this.chkTodos.Size = new System.Drawing.Size(184, 22);
+            this.chkTodos.TabIndex = 13;
+            this.chkTodos.Text = "Todos los productos";
+            this.chkTodos.UseVisualStyleBackColor = true;
+            this.chkTodos.CheckedChanged += new System.EventHandler(this.chkTodos_CheckedChanged);
             // 
             // formVentaPorFecha
             // 
@@ -237,5 +254,6 @@
         private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ToolStripProgressBar tsProgressbar;
+        private System.Windows.Forms.CheckBox chkTodos;
     }
 }

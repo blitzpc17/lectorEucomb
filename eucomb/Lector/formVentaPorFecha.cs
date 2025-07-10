@@ -1,4 +1,5 @@
-﻿using entidades.ReporteLitros;
+﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+using entidades.ReporteLitros;
 using entidades.VentaPorFecha;
 using System;
 using System.Collections.Generic;
@@ -44,11 +45,11 @@ namespace eucomb.Lector
             ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("FACTURA", 0));
             ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("FECHA", 1));
             ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("UUID", 2));
-            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("PRODUCTO", 3));
-            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("RFC", 4));
-            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("CODIGOPOSTAL", 5));
-            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("LITROS", 6));
-            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("IMPORTE", 7));
+            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("PRODUCTO", 4));
+            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("RFC", 5));
+            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("CODIGOPOSTAL", 6));
+            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("LITROS", 7));
+            ListaOpcionesFiltrado.Add(new KeyValuePair<string, int>("IMPORTE", 8));
 
             cbxFiltro.DataSource = ListaOpcionesFiltrado;
             cbxFiltro.DisplayMember = "key";
@@ -93,9 +94,12 @@ namespace eucomb.Lector
 
         private void LLenarDgv()
         {
+            if (ListaRegistrosAux == null) return;
+
             dgvRegistros.DataSource = ListaRegistrosAux;
             Apariencias();
             tsTotalRegistros.Text = dgvRegistros.RowCount.ToString("N0");
+          
         }
 
         private void Apariencias()
@@ -113,20 +117,22 @@ namespace eucomb.Lector
             dgvRegistros.Columns[2].HeaderText = "UUID";
             dgvRegistros.Columns[2].Frozen = true;
 
-            dgvRegistros.Columns[3].Width = 280;
-            dgvRegistros.Columns[3].HeaderText = "PRODUCTO";
+            dgvRegistros.Columns[3].Visible = false;
 
-            dgvRegistros.Columns[4].Width = 130;
-            dgvRegistros.Columns[4].HeaderText = "LITROS";
+            dgvRegistros.Columns[4].Width = 280;
+            dgvRegistros.Columns[4].HeaderText = "PRODUCTO";
 
             dgvRegistros.Columns[5].Width = 130;
-            dgvRegistros.Columns[5].HeaderText = "IMPORTE";
+            dgvRegistros.Columns[5].HeaderText = "LITROS";
 
             dgvRegistros.Columns[6].Width = 130;
-            dgvRegistros.Columns[6].HeaderText = "RFC";
+            dgvRegistros.Columns[6].HeaderText = "IMPORTE";
 
-            dgvRegistros.Columns[7].Width = 100;
-            dgvRegistros.Columns[7].HeaderText = "C.P.";
+            dgvRegistros.Columns[7].Width = 130;
+            dgvRegistros.Columns[7].HeaderText = "RFC";
+
+            dgvRegistros.Columns[8].Width = 100;
+            dgvRegistros.Columns[8].HeaderText = "C.P.";
 
         }
 
@@ -138,6 +144,8 @@ namespace eucomb.Lector
 
         private void txtBusqueda_KeyUp(object sender, KeyEventArgs e)
         {
+            if (dgvRegistros.DataSource == null) return;
+
             entrada = txtBusqueda.Text;
 
             switch (cbxFiltro.SelectedValue)
@@ -156,29 +164,34 @@ namespace eucomb.Lector
                     ListaRegistrosAux = ListaRegistros.Where(x => x.Uuid.ToUpper().Contains(entrada)).ToList();
                     break;
 
-                case 3: 
+                case 4: 
                     ListaRegistrosAux = ListaRegistros.Where(x => x.Producto.ToUpper().Contains(entrada)).ToList();
                     break;
 
-                case 4:
+                case 5:
                     ListaRegistrosAux = ListaRegistros.Where(x => x.Rfc.ToUpper().Contains(entrada)).ToList();
                     break;
 
-                case 5:
+                case 6:
                     ListaRegistrosAux = ListaRegistros.Where(x => x.CodigoPostal.Contains(entrada)).ToList();
                     break;
 
-                case 6:
+                case 7:
                     ListaRegistrosAux = ListaRegistros.Where(x => x.Litros.ToString().Contains(entrada)).ToList();
                     break;
 
-                case 7:
+                case 8:
                     ListaRegistrosAux = ListaRegistros.Where(x => x.Importe.ToString().Contains(entrada)).ToList();
                     break;
             }
 
-            ListaRegistrosAux = ListaRegistrosAux.OrderBy(x => x.Rfc).ThenBy(x => x.CodigoPostal).ThenBy(x => x.Fecha).ToList();
+            if (!chkTodos.Checked)
+            {
+                ListaRegistrosAux = ListaRegistrosAux.Where(x => x.Clave == "15101505" || x.Clave == "15101514" || x.Clave == "15101515").ToList();
 
+            }
+
+            ListaRegistrosAux = ListaRegistrosAux.OrderBy(x => x.Rfc).ThenBy(x => x.CodigoPostal).ThenBy(x => x.Fecha).ToList();
 
 
             LLenarDgv();
@@ -211,7 +224,8 @@ namespace eucomb.Lector
                                 Uuid = cfdi.Complemento.TimbreFiscalDigital.UUID,
                                 Producto = item.Descripcion,
                                 Litros = item.Cantidad,
-                                Importe = item.Importe
+                                Importe = item.Importe,
+                                Clave = item.ClaveProdServ
 
                             });                           
                         }
@@ -281,6 +295,34 @@ namespace eucomb.Lector
 
                 }
             }
+        }
+
+        private void chkTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chkTodos.Checked)
+            {
+                ListaRegistrosAux = ListaRegistros.Where(x => x.Clave == "15101505"|| x.Clave == "15101514" || x.Clave == "15101515").ToList();
+            }
+            else
+            {
+                ListaRegistrosAux = ListaRegistros;
+            }            
+
+            LLenarDgv();
+
+            cbxFiltro.SelectedIndex = -1;
+
+
+        }
+
+        private void cbxFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxFiltro.SelectedIndex != -1)
+            {
+                txtBusqueda.Clear();
+                txtBusqueda.Focus();
+            }
+         
         }
     }
 }
