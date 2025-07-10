@@ -144,6 +144,11 @@ namespace eucomb.Lector
 
         private void txtBusqueda_KeyUp(object sender, KeyEventArgs e)
         {
+            FiltrarInfo();
+        }
+
+        private void FiltrarInfo()
+        {
             if (dgvRegistros.DataSource == null) return;
 
             entrada = txtBusqueda.Text;
@@ -164,7 +169,7 @@ namespace eucomb.Lector
                     ListaRegistrosAux = ListaRegistros.Where(x => x.Uuid.ToUpper().Contains(entrada)).ToList();
                     break;
 
-                case 4: 
+                case 4:
                     ListaRegistrosAux = ListaRegistros.Where(x => x.Producto.ToUpper().Contains(entrada)).ToList();
                     break;
 
@@ -183,6 +188,11 @@ namespace eucomb.Lector
                 case 8:
                     ListaRegistrosAux = ListaRegistros.Where(x => x.Importe.ToString().Contains(entrada)).ToList();
                     break;
+            }
+
+            if(cbxFiltro.SelectedIndex == -1)
+            {
+                ListaRegistrosAux = ListaRegistros;
             }
 
             if (!chkTodos.Checked)
@@ -299,20 +309,8 @@ namespace eucomb.Lector
 
         private void chkTodos_CheckedChanged(object sender, EventArgs e)
         {
-            if (!chkTodos.Checked)
-            {
-                ListaRegistrosAux = ListaRegistros.Where(x => x.Clave == "15101505"|| x.Clave == "15101514" || x.Clave == "15101515").ToList();
-            }
-            else
-            {
-                ListaRegistrosAux = ListaRegistros;
-            }            
-
+            FiltrarInfo();
             LLenarDgv();
-
-            cbxFiltro.SelectedIndex = -1;
-
-
         }
 
         private void cbxFiltro_SelectedIndexChanged(object sender, EventArgs e)
