@@ -1,4 +1,5 @@
 ﻿using eucomb.Lector;
+using eucomb.Sistema;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace eucomb
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formVentaPorFecha());
+            Application.Run(new MDIMain());
         }
     }
 }

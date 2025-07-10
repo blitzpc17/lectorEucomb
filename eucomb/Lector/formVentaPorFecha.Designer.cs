@@ -207,6 +207,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "formVentaPorFecha";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Venta por Fecha";
             this.Load += new System.EventHandler(this.formVentaPorFecha_Load);
             this.groupBox1.ResumeLayout(false);
