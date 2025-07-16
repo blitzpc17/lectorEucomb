@@ -30,16 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.sATGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lECTORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mENSUALESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sATGToolStripMenuItem});
+            this.sATGToolStripMenuItem,
+            this.lECTORESToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1584, 24);
@@ -57,9 +61,32 @@
             // ventasPorMesToolStripMenuItem
             // 
             this.ventasPorMesToolStripMenuItem.Name = "ventasPorMesToolStripMenuItem";
-            this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ventasPorMesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.ventasPorMesToolStripMenuItem.Text = "Ventas Por Mes";
             this.ventasPorMesToolStripMenuItem.Click += new System.EventHandler(this.ventasPorMesToolStripMenuItem_Click);
+            // 
+            // lECTORESToolStripMenuItem
+            // 
+            this.lECTORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mENSUALESToolStripMenuItem});
+            this.lECTORESToolStripMenuItem.Name = "lECTORESToolStripMenuItem";
+            this.lECTORESToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.lECTORESToolStripMenuItem.Text = "LECTORES";
+            // 
+            // mENSUALESToolStripMenuItem
+            // 
+            this.mENSUALESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jSONToolStripMenuItem});
+            this.mENSUALESToolStripMenuItem.Name = "mENSUALESToolStripMenuItem";
+            this.mENSUALESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mENSUALESToolStripMenuItem.Text = "MENSUALES";
+            // 
+            // jSONToolStripMenuItem
+            // 
+            this.jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
+            this.jSONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jSONToolStripMenuItem.Text = "JSON";
+            this.jSONToolStripMenuItem.Click += new System.EventHandler(this.jSONToolStripMenuItem_Click);
             // 
             // MDIMain
             // 
@@ -85,6 +112,9 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem sATGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventasPorMesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lECTORESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mENSUALESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jSONToolStripMenuItem;
     }
 }
 

@@ -26,5 +26,12 @@ namespace eucomb.Sistema
             form.MdiParent = this;
             form.Show();
         }
+
+        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formMensualJson form = new formMensualJson();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }
