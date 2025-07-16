@@ -229,7 +229,7 @@ namespace eucomb.Lector
                             {
                                 Factura = cfdi.Folio,
                                 Rfc = cfdi.Receptor.Rfc,
-                                CodigoPostal = cfdi.Receptor.DomicilioFiscalReceptor,
+                                CodigoPostal = cfdi.LugarExpedicion,
                                 Fecha = cfdi.Fecha,
                                 Uuid = cfdi.Complemento.TimbreFiscalDigital.UUID,
                                 Producto = item.Descripcion,
