@@ -32,10 +32,13 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.sATGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasPorMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.lECTORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mENSUALESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.dIARIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jSONToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +71,8 @@
             // lECTORESToolStripMenuItem
             // 
             this.lECTORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mENSUALESToolStripMenuItem});
+            this.mENSUALESToolStripMenuItem,
+            this.dIARIOSToolStripMenuItem});
             this.lECTORESToolStripMenuItem.Name = "lECTORESToolStripMenuItem";
             this.lECTORESToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.lECTORESToolStripMenuItem.Text = "LECTORES";
@@ -84,9 +88,31 @@
             // jSONToolStripMenuItem
             // 
             this.jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
-            this.jSONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jSONToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.jSONToolStripMenuItem.Text = "JSON";
             this.jSONToolStripMenuItem.Click += new System.EventHandler(this.jSONToolStripMenuItem_Click);
+            // 
+            // dIARIOSToolStripMenuItem
+            // 
+            this.dIARIOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xMLToolStripMenuItem,
+            this.jSONToolStripMenuItem1});
+            this.dIARIOSToolStripMenuItem.Name = "dIARIOSToolStripMenuItem";
+            this.dIARIOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dIARIOSToolStripMenuItem.Text = "DIARIOS";
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xMLToolStripMenuItem.Text = "XML";
+            this.xMLToolStripMenuItem.Click += new System.EventHandler(this.xMLToolStripMenuItem_Click);
+            // 
+            // jSONToolStripMenuItem1
+            // 
+            this.jSONToolStripMenuItem1.Name = "jSONToolStripMenuItem1";
+            this.jSONToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.jSONToolStripMenuItem1.Text = "JSON";
             // 
             // MDIMain
             // 
@@ -115,6 +141,9 @@
         private System.Windows.Forms.ToolStripMenuItem lECTORESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mENSUALESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jSONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dIARIOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jSONToolStripMenuItem1;
     }
 }
 

@@ -59,10 +59,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VentaPorFecha\clsReporteVentaPorFecha.cs" />
     <Compile Include="VentaPorFecha\Comprobante.cs" />
+    <Compile Include="XML\clsCfdiMensual.cs" />
+    <Compile Include="XML\clsMensual.cs" />
+    <Compile Include="XML\clsProductoInfo.cs" />
+    <Compile Include="XML\Diario\clsCdfiDiario.cs" />
+    <Compile Include="XML\Diario\clsContenidoControlVolumetrico.cs" />
+    <Compile Include="XML\Diario\clsInventarioDiario.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="XML\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

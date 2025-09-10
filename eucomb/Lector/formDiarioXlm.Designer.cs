@@ -1,6 +1,6 @@
 ﻿namespace eucomb.Lector
 {
-    partial class formMensualJson
+    partial class formDiarioXlm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnExportar = new System.Windows.Forms.Button();
-            this.btnImportar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panelCargaArchivo = new System.Windows.Forms.Panel();
@@ -78,9 +76,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtModPermiso = new System.Windows.Forms.TextBox();
-            this.panelInventarios = new System.Windows.Forms.Panel();
             this.btnXmlJson = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panelInventarios = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panelCargaArchivo.SuspendLayout();
@@ -98,24 +96,6 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnExportar
-            // 
-            this.btnExportar.Location = new System.Drawing.Point(137, 504);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(110, 45);
-            this.btnExportar.TabIndex = 18;
-            this.btnExportar.Text = "Expotar";
-            this.btnExportar.UseVisualStyleBackColor = true;
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.Location = new System.Drawing.Point(21, 504);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(110, 45);
-            this.btnImportar.TabIndex = 17;
-            this.btnImportar.Text = "Importar JSON";
-            this.btnImportar.UseVisualStyleBackColor = true;
-            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -123,11 +103,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(19, 12);
+            this.tabControl1.Location = new System.Drawing.Point(16, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1145, 648);
-            this.tabControl1.TabIndex = 19;
+            this.tabControl1.TabIndex = 20;
             // 
             // tabPage1
             // 
@@ -376,7 +356,6 @@
             this.btnComparar.TabIndex = 5;
             this.btnComparar.Text = "Comparar";
             this.btnComparar.UseVisualStyleBackColor = true;
-            this.btnComparar.Click += new System.EventHandler(this.btnComparar_Click);
             // 
             // btnGenerarExcel
             // 
@@ -387,7 +366,6 @@
             this.btnGenerarExcel.TabIndex = 8;
             this.btnGenerarExcel.Text = "Exportar";
             this.btnGenerarExcel.UseVisualStyleBackColor = true;
-            this.btnGenerarExcel.Click += new System.EventHandler(this.btnGenerarExcel_Click);
             // 
             // tabPage2
             // 
@@ -619,6 +597,25 @@
             this.txtModPermiso.Size = new System.Drawing.Size(225, 20);
             this.txtModPermiso.TabIndex = 31;
             // 
+            // btnXmlJson
+            // 
+            this.btnXmlJson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnXmlJson.Location = new System.Drawing.Point(6, 581);
+            this.btnXmlJson.Name = "btnXmlJson";
+            this.btnXmlJson.Size = new System.Drawing.Size(110, 35);
+            this.btnXmlJson.TabIndex = 11;
+            this.btnXmlJson.Text = "Importar XML";
+            this.btnXmlJson.UseVisualStyleBackColor = true;
+            this.btnXmlJson.Click += new System.EventHandler(this.btnXmlJson_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // panelInventarios
             // 
             this.panelInventarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -630,35 +627,16 @@
             this.panelInventarios.Size = new System.Drawing.Size(1111, 422);
             this.panelInventarios.TabIndex = 2;
             // 
-            // btnXmlJson
-            // 
-            this.btnXmlJson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnXmlJson.Location = new System.Drawing.Point(6, 581);
-            this.btnXmlJson.Name = "btnXmlJson";
-            this.btnXmlJson.Size = new System.Drawing.Size(110, 35);
-            this.btnXmlJson.TabIndex = 11;
-            this.btnXmlJson.Text = "Importar JSON";
-            this.btnXmlJson.UseVisualStyleBackColor = true;
-            this.btnXmlJson.Click += new System.EventHandler(this.btnXmlJson_Click);
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
-            // 
-            // formMensualJson
+            // formDiarioXlm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 672);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btnExportar);
-            this.Controls.Add(this.btnImportar);
-            this.Name = "formMensualJson";
-            this.Text = "Mensual JSON";
-            this.Load += new System.EventHandler(this.formMensualJson_Load);
+            this.MinimumSize = new System.Drawing.Size(1192, 711);
+            this.Name = "formDiarioXlm";
+            this.Text = "Mensual XML";
+            this.Shown += new System.EventHandler(this.formMensualXlm_Shown);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -687,17 +665,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnExportar;
-        private System.Windows.Forms.Button btnImportar;
+
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panelCargaArchivo;
         private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.GroupBox gbxComparacion;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripLabel tsErrores;
         private System.Windows.Forms.DataGridView dgvErrores;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.GroupBox gbxFacturacion;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
@@ -714,6 +692,9 @@
         private System.Windows.Forms.Button btnComparar;
         private System.Windows.Forms.Button btnGenerarExcel;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panelCarga;
+        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Label lblCarga;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtRfcProveedor;
         private System.Windows.Forms.Label label1;
@@ -733,12 +714,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtModPermiso;
-        private System.Windows.Forms.Panel panelInventarios;
         private System.Windows.Forms.Button btnXmlJson;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ProgressBar progressBar2;
-        private System.Windows.Forms.Label lblCarga;
-        private System.Windows.Forms.Panel panelCarga;
-        private System.Windows.Forms.Panel panelCargaArchivo;
+        private System.Windows.Forms.Panel panelInventarios;
     }
 }

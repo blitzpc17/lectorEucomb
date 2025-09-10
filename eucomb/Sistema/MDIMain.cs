@@ -30,6 +30,12 @@ namespace eucomb.Sistema
         private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formMensualJson form = new formMensualJson();
+        
+        }
+
+        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formDiarioXlm form = new formDiarioXlm();
             form.MdiParent = this;
             form.Show();
         }

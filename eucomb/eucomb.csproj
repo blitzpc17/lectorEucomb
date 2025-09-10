@@ -79,6 +79,12 @@
     <Compile Include="Lector\formMensualJson.Designer.cs">
       <DependentUpon>formMensualJson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lector\formDiarioXlm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lector\formDiarioXlm.Designer.cs">
+      <DependentUpon>formDiarioXlm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Lector\formVentaPorFecha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="Lector\formMensualJson.resx">
       <DependentUpon>formMensualJson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lector\formDiarioXlm.resx">
+      <DependentUpon>formDiarioXlm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lector\formVentaPorFecha.resx">
       <DependentUpon>formVentaPorFecha.cs</DependentUpon>

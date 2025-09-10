@@ -19,10 +19,8 @@ namespace eucomb.Lector
     {
 
         private List<clsExVentaPorFecha> LstExcel;
-        private List<clsExVentaPorFecha> LstExcelAux;
 
         private List<clsMensual> ListaJson;
-        private List<clsMensual> ListaJsonAux;
 
         private List<KeyValuePair<string, string>> LstCfdisErrores;
 
@@ -117,7 +115,6 @@ namespace eucomb.Lector
                     break;
 
                 case "comparar":
-                    ListaJsonAux = ListaJson;
                     ComparacionAivic();
                     break;
                 case "exportar":
